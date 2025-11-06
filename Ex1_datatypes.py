@@ -56,6 +56,21 @@ print("-------------------------------------------\n"
 # Recorded: wallet (black) found at train station
 #
 # Write your code below:
+item_name = ""
+colour = ""
+location = ""
+
+found_item = {
+"name": "",
+"colour": "",
+"location": "",
+} 
+
+found_item["name"] = input("What is the item called?\n")
+found_item["colour"] = input("What colour is the item?\n")
+found_item["location"] = input("Where did you find it?\n")
+
+print(found_item)
 
 # HINT: Create dictionary syntax is:
 # my_dict = {"key1": value1, "key2": value2, "key3": value3}
@@ -97,6 +112,29 @@ print("-------------------------------------------\n"
 # Item 2: phone (silver) - Found at: shopping centre
 #
 # Write your code below:
+# found_items = [found_item]
+found_items =[]
+found_items.append(found_item)
+to_use = "Would you like to add another item? (yes or No):"
+user_input = input (to_use).lower()
+while user_input == "yes":
+    new_item = {
+        "name": "",
+        "colour": "",
+        "location": ""
+    }
+    new_item["name"]= input ("What is the item name? ")
+    new_item["colour"] = input ("What is the item colour? ")
+    new_item["location"] = input ("Where is the item found? ")
+    found_items.append(new_item)
+    user_input = input (to_use).lower()
+
+print(f"Total items recovered: {len(found_items)}")
+counter = 1
+for i in found_items:
+    print(f" Item {counter}: {i["name"]} - Found at {i["location"]}")
+    counter = counter + 1
+
 
 # HINT: To access dictionary values, use: dictionary_name["key_name"]
 # Example: found_item["name"] gets the name value
@@ -148,6 +186,17 @@ print("-------------------------------------------\n"
 # Total items: 2
 #
 # Write your code below:
+counter = 1
+print("=== FOUND ITEM RECORDS===")
+if len(found_items) == 0:
+    print("No items recorded yet")
+else:
+    for i in found_items: 
+       print (f"record {counter}:\n Name: {i["name"]}\n Colour: {i["colour"]}\n Location: {i["location"]}\n") 
+       counter = counter +1
+       print() 
+print(f"The total number: {len(found_items)}")     
+
 
 # HINT: When looping through a list of dictionaries:
 # for item in found_items:
